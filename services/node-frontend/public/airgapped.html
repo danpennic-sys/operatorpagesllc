@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Air-Gapped Mobile Products — Operator Pages</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #1a1d24;
+      --border: #2a2f3a;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #3b82f6;
+      --accent-dim: #1e3a5f;
+      --success: #22c55e;
+      --warning: #f59e0b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .tagline {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 36rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      margin-top: 1rem;
+      letter-spacing: 0.03em;
+    }
+    section { margin-bottom: 3rem; }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .card p { font-size: 0.95rem; margin-bottom: 0; }
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      margin-top: 0.85rem;
+      color: var(--success);
+    }
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+    }
+    ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.55rem;
+      color: var(--muted);
+    }
+    ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 550;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      transition: background 0.15s;
+    }
+    .cta:hover { background: #2563eb; }
+    .cta.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      margin-left: 0.75rem;
+    }
+    .cta.secondary:hover { border-color: var(--muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .principle {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .principle strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">Operator Pages</div>
+      <h1>Air-Gapped Mobile Products</h1>
+      <p class="tagline">
+        Operator-grade tools that run fully offline. No cloud dependency.
+        Deterministic verification. Built for environments where the network is the threat surface.
+      </p>
+      <span class="badge">Offline-First · Deterministic · Mobile-Ready</span>
+    </header>
+
+    <section>
+      <h2>Why Air-Gapped</h2>
+      <p>
+        Most mobile tooling assumes constant connectivity. That assumption fails in classified environments,
+        field operations, industrial control systems, and any setting where data exfiltration risk is unacceptable.
+      </p>
+      <div class="principle">
+        <strong>Core rule:</strong> If it needs the cloud to function, it is not air-gapped.
+        Every product on this page works with zero network after initial provisioning.
+      </div>
+    </section>
+
+    <section>
+      <h2>Product Line</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>QuantumGuard Mobile Verifier</h3>
+          <p>
+            Single-verifier evidence gate for mobile. Offline PASS / FAIL / INDETERMINATE.
+            Ed25519 frozen. PQC track reserved. Runs on hardened Android devices.
+          </p>
+          <div class="status">v1 frozen</div>
+        </div>
+        <div class="card">
+          <h3>Snoop-Blocker Mobile</h3>
+          <p>
+            Slim offline identical-entryway audit and disruption layer.
+            Detects and blocks unauthorized observation paths without phoning home.
+          </p>
+          <div class="status">Baseline locked</div>
+        </div>
+        <div class="card">
+          <h3>Operator Evidence Kit (Mobile)</h3>
+          <p>
+            Portable evidence capture and attestation pack.
+            Generates signed, replay-safe evidence packages that verify offline.
+          </p>
+          <div class="status">Operator-ready</div>
+        </div>
+        <div class="card">
+          <h3>Air-Gap Provisioning Pack</h3>
+          <p>
+            One-time load of keys, policies, and conformance vectors via physical media.
+            After load, the device never needs external connectivity to operate.
+          </p>
+          <div class="status">Design partner</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Design Constraints</h2>
+      <ul>
+        <li>No runtime network calls after provisioning</li>
+        <li>All verification is local and deterministic</li>
+        <li>Evidence packages are self-contained and replay-safe</li>
+        <li>Mobile form factor prioritized (phone / hardened tablet)</li>
+        <li>Clear FAIL states — never silent degradation</li>
+        <li>Operator Quickstart included with every product</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Who This Is For</h2>
+      <p>
+        Field operators, industrial control environments, classified networks,
+        evidence-critical workflows, and any team that refuses to trust the wire.
+      </p>
+      <p>
+        If your threat model includes network compromise or data residency requirements,
+        these products are built for that constraint — not around it.
+      </p>
+    </section>
+
+    <section>
+      <h2>Next Step</h2>
+      <p>
+        Design partner access is open for the Operator Evidence Kit and QuantumGuard Mobile Verifier.
+        Air-gap provisioning packs ship with physical media and offline runbooks.
+      </p>
+      <a class="cta" href="mailto:danpennic@gmail.com?subject=Air-Gapped%20Mobile%20Products%20Inquiry">Request Access</a>
+      <a class="cta secondary" href="/">Back to Operator Pages</a>
+    </section>
+
+    <footer>
+      Operator Pages · Air-Gapped Mobile Products · Deterministic. Offline. Operator-grade.
+    </footer>
+  </div>
+</body>
+</html>

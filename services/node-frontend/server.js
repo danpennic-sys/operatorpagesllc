@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const path = require('path');
 require('dotenv').config('../../.env');
 
 const app = express();
@@ -10,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuration
 const GO_API_URL = process.env.GO_API_URL || 'http://localhost:3000';
@@ -87,6 +88,11 @@ app.get('/api/services', async (req, res) => {
   }
 });
 
+// Air-Gapped Mobile Products page (separate page)
+app.get('/airgapped', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'airgapped.html'));
+});
+
 // Serve main page
 app.get('/', (req, res) => {
   res.send(`
@@ -113,6 +119,8 @@ app.get('/', (req, res) => {
         .status { margin: 10px 0; padding: 10px; border-radius: 4px; }
         .status.active { background: #d4edda; color: #155724; }
         .status.inactive { background: #f8d7da; color: #721c24; }
+        .nav-link { display: inline-block; margin-top: 12px; color: #007bff; text-decoration: none; font-weight: 500; }
+        .nav-link:hover { text-decoration: underline; }
       </style>
     </head>
     <body>
@@ -120,6 +128,7 @@ app.get('/', (req, res) => {
         <div class="header">
           <h1>OperatorPages - ChatGPT Integration</h1>
           <p>Integrated with Python ChatGPT, Go API, and Node.js Frontend</p>
+          <a class="nav-link" href="/airgapped">→ Air-Gapped Mobile Products</a>
         </div>
 
         <div class="content">
