@@ -1,9 +1,9 @@
-FROM node:18-alpine
+FROM node:26-alpine
 
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
-RUN npm install --production
+RUN npm install --omit=dev
 
 COPY . .
 
